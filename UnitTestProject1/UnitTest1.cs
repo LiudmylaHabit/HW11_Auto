@@ -7,6 +7,13 @@ namespace UnitTestProject1
     [TestFixture]
     public class UnitTest1
     {
+        public Currency currency;
+        [OneTimeSetUp]
+        public void Open_Console()
+        {
+            currency = new Currency("ILS", Convert.ToDecimal(0.29));
+        }       
+
         // Parameterized tests
         [TestCase(1, 0.036, 0.036)]
         [TestCase(10, 1, 10)]
@@ -53,11 +60,25 @@ namespace UnitTestProject1
             Assert.AreEqual(0, actResult);
         }
 
-        [Test]
-        public void CheckingCorrectnessOfDollarConvertion()
+        [Test(Description = "Checking correctness of convertion of dollar")]
+        public void DollarConvertion()
         {
             decimal actResult = new ConverterForCurrency().DollarConvertion(100, Convert.ToDecimal(0.036));
             Assert.AreEqual(2777.7778, actResult);
+        }
+
+        [Test(Description = "Checking correctness of convertion to dollar instance that initialize in unit tests")]
+        public void ConvertionToDollarCustomCurrency()
+        {
+            decimal actResult = new ConverterForCurrency().ConvertionToDollar(75, currency.ToDollarRate);
+            Assert.AreEqual(21.75, actResult);
+        }
+
+        [Test(Description = "Checking correctness of convertion of dollar to instance of currency that initialize in unit tests")]
+        public void DollarConvertionOfCustomCurrency()
+        {
+            decimal actResult = new ConverterForCurrency().DollarConvertion(340, currency.ToDollarRate);
+            Assert.AreEqual(1172.4138, actResult);
         }
     }
 }
