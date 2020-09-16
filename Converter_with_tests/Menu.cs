@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Converter_with_tests
 {
-    class Menu
+    public class Menu
     {
         public bool Game()
         {
