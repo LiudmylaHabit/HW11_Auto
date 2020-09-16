@@ -7,6 +7,13 @@ namespace UnitTestProject1
     [TestFixture]
     public class UnitTest1
     {
+        public Currency currency;
+        [OneTimeSetUp]
+        public void Open_Console()
+        {
+            currency = new Currency("ILS", Convert.ToDecimal(0.29));
+        }
+
         // Parameterized tests
         [TestCase(1, 0.036, 0.036)]
         [TestCase(10, 1, 10)]
