@@ -2,7 +2,7 @@
 
 namespace Converter_with_tests
 {
-    class ConverterForCurrency
+    public class ConverterForCurrency
     {
         public decimal ConvertionToDollar(decimal SumToConvert, decimal rate)
         {

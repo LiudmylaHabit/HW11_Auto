@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Converter_with_tests
 {
-    class Currency
+    public class Currency
     {
         public string Name;
         public decimal ToDollarRate;
