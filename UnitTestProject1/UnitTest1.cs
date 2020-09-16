@@ -9,7 +9,7 @@ namespace UnitTestProject1
     {
         public Currency currency;
         [OneTimeSetUp]
-        public void Open_Console()
+        public void FirstHook()
         {
             currency = new Currency("ILS", Convert.ToDecimal(0.29));
         }
