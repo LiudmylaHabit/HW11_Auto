@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using Converter_with_tests;
+using System.Diagnostics;
 
 namespace UnitTestProject1
 {
@@ -8,10 +9,18 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         public Currency currency;
+
         [OneTimeSetUp]
         public void FirstHook()
         {
             currency = new Currency("ILS", Convert.ToDecimal(0.29));
+        }
+
+        [OneTimeTearDown]
+        public void LastHook()
+        {
+            Process.Start("https://prnt.sc/uionnt");
+            Process.Start("cmd.exe");
         }
 
         // Parameterized tests
