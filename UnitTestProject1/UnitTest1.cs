@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using Converter_with_tests;
+using System.Diagnostics;
 
 namespace UnitTestProject1
 {
@@ -18,7 +19,8 @@ namespace UnitTestProject1
         [OneTimeTearDown]
         public void LastHook()
         {
-            System.Diagnostics.Process.Start("https://prnt.sc/uionnt");
+            Process.Start("https://prnt.sc/uionnt");
+            Process.Start("cmd.exe");
         }
 
         // Parameterized tests
