@@ -8,10 +8,17 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         public Currency currency;
+
         [OneTimeSetUp]
         public void FirstHook()
         {
             currency = new Currency("ILS", Convert.ToDecimal(0.29));
+        }
+
+        [OneTimeTearDown]
+        public void LastHook()
+        {
+            System.Diagnostics.Process.Start("https://prnt.sc/uionnt");
         }
 
         // Parameterized tests
